@@ -22,6 +22,7 @@ public class ThirdTask {
         int secondNumber = (int)NumberUtils.getCorrectNumber(scanner, items[2]);
 
         callRequiredAction(items[1], firstNumber, secondNumber, scanner);
+
     }
 
     private static void callRequiredAction(String action, int firstNumber, int secondNumber, Scanner scanner) {
