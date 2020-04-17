@@ -19,7 +19,7 @@ public class FirstTask {
         while(selection != 5)
         {
             System.out.println("1. Staciojo trikampio plotas\n2. Staciakampio plotas\n3. Kvadrato plotas\n4. Apskritimo plotas\n5. Baigti");
-            selection = (int) firstTask.getCorrectNumber(scanner);
+            selection = (int) NumberUtils.getCorrectNumber(scanner);
             switch (selection) {
                 case 1:
                     firstTask.countTriangle(scanner);
@@ -43,40 +43,29 @@ public class FirstTask {
     }
     private void countTriangle(Scanner scanner) {
         System.out.println("Iveskite pirma statini: ");
-        int a = (int) getCorrectNumber(scanner);
+        int a = (int) NumberUtils.getCorrectNumber(scanner);
         System.out.println("Iveskite antra statini: ");
-        int b = (int) getCorrectNumber(scanner);
+        int b = (int) NumberUtils.getCorrectNumber(scanner);
         System.out.println("Trikampio plotas yra " + a * b / 2);
     }
     private void countRectangle(Scanner scanner) {
         System.out.println("Iveskite pirma krastine: ");
-        int a = (int) getCorrectNumber(scanner);
+        int a = (int) NumberUtils.getCorrectNumber(scanner);
         System.out.println("Iveskite antra krastine: ");
-        int b = (int) getCorrectNumber(scanner);
+        int b = (int) NumberUtils.getCorrectNumber(scanner);
         System.out.println("Staciakampio plotas yra " + a * b);
     }
     private void countSquare(Scanner scanner) {
         System.out.println("Iveskite krastines ilgi: ");
-        int a = (int) getCorrectNumber(scanner);
+        int a = (int) NumberUtils.getCorrectNumber(scanner);
         System.out.println("Kvadrato plotas yra " + a * 2);
     }
     private void countCircle(Scanner scanner) {
         System.out.println("Iveskite spinduli");
-        double r = getCorrectNumber(scanner);
+        double r = NumberUtils.getCorrectNumber(scanner);
         DecimalFormat df = new DecimalFormat("0.00");
         double pi = 3.1415;
         System.out.println("Apskirtimo plotas " + df.format(Math.pow(r, 2) * pi));
     }
-    private double getCorrectNumber(Scanner scanner) {
-        while(true) {
-            try {
-                double number = scanner.nextDouble();
-                return number;
-            } catch(InputMismatchException ex) {
-                System.out.println("Ivedete bloga skaiciu. Pakartokite");
-                scanner.nextLine();
-            }
-        }
 
-    }
 }
