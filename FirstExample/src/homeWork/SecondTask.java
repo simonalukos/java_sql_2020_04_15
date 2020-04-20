@@ -18,22 +18,22 @@ public class SecondTask {
 
         int[] skaiciai = new int[kiekis];
 
-        for(int i = 1; i <= kiekis; i++){
-            System.out.println("Skaicius: " + i);
+        for(int i = 0; i < kiekis; i++){
+
+        }
+        for(int i = 0; i < skaiciai.length; i++){
+            System.out.println(String.format("Skaicius: " + i));
             skaiciai[i] = sc.nextInt();
         }
         for(int i = 0; i < skaiciai.length; i++){
-            System.out.println(skaiciai[i] + ',');
-        }
-
-
-    }
-    private static void ifNumberIsBiggerThanHundred(int[] skaiciai) {
-        for (int i = 0; i <= skaiciai.length; i++){
-            if(i > 100){
-                System.out.println(skaiciai);
+            if(skaiciai[i] > 100){
+                System.out.println(skaiciai[i]);
             }
         }
+
+
+
     }
+
 
 }

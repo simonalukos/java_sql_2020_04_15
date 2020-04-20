@@ -20,13 +20,15 @@ public class TenthTask {
     }
 
     private static int checkWordHasLetterA(String word, char letter) {
+        if (word == null || word.length() == 0) {
+            return 0;
+        }
         int count = 0;
         for (int i = 0; i < word.length(); i++) {
             if (letter == word.charAt(i)) {
                 count++;
-            } else {
-                count = 0;
             }
+
         }
         return count;
     }
