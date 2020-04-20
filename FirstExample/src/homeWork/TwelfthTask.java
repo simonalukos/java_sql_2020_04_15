@@ -18,8 +18,4 @@ public class TwelfthTask {
         System.out.println(Arrays.toString(vardai));
     }
 
-    private static void namesFromLetterA(String[] vardai) {
-    }
-
-
 }

@@ -18,9 +18,7 @@ public class SecondTask {
 
         int[] skaiciai = new int[kiekis];
 
-        for(int i = 0; i < kiekis; i++){
 
-        }
         for(int i = 0; i < skaiciai.length; i++){
             System.out.println(String.format("Skaicius: " + i));
             skaiciai[i] = sc.nextInt();

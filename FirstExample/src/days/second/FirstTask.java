@@ -1,7 +1,6 @@
-package days.Second;
+package days.second;
 
 import java.text.DecimalFormat;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**

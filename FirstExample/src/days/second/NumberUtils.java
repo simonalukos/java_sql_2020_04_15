@@ -1,4 +1,4 @@
-package days.Second;
+package days.second;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

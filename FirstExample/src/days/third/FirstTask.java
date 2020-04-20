@@ -1,6 +1,6 @@
 package days.third;
 
-import days.Second.NumberUtils;
+import days.second.NumberUtils;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;

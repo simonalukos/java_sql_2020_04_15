@@ -16,7 +16,6 @@ public class TenthTask {
         word = scanner.nextLine();
 
         System.out.println("A raidziu zodyje yra: " + checkWordHasLetterA(word, 'a'));
-
     }
 
     private static int checkWordHasLetterA(String word, char letter) {
@@ -28,7 +27,6 @@ public class TenthTask {
             if (letter == word.charAt(i)) {
                 count++;
             }
-
         }
         return count;
     }

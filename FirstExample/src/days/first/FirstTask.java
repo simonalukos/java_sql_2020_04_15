@@ -1,4 +1,4 @@
-package days.First;
+package days.first;
 
 import java.util.Scanner;
 
