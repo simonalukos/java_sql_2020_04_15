@@ -12,9 +12,10 @@ public class EleventhTask {
         String word;
 
         System.out.println("Irasykite zodi, kuriame yra raidziu 'ab'.");
-        word =  scanner.nextLine();
+        
 
     }
     private static void checkWordHasLettersAb(String word, char l1, char l2) {
     }
+
 }
