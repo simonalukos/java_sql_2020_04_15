@@ -1,5 +1,7 @@
 package com.kcs.students.app.dto;
 
+import java.util.Objects;
+
 public class Student {
     private int id;
     private String firstname;
@@ -17,6 +19,22 @@ public class Student {
         this.phone = phone;
     }
     public Student() {}
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return firstname.equals(student.firstname) &&
+                lastname.equals(student.lastname) &&
+                email.equals(student.email) &&
+                phone.equals(student.phone);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstname, lastname, email, phone);
+    }
 
     public int getId() {
         return id;

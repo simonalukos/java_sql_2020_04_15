@@ -34,9 +34,87 @@ public class StudentService {
             }catch (SQLException e){
                 System.out.println(e.getMessage());
             }
-
         }
         return students;
+    }
 
+    public Student getStudent(int id){
+
+        PreparedStatement preparedStatement = studentRepository.getPreparedStatement("SELECT * FROM students where id = ?");
+        if(preparedStatement == null){
+            return null;
+        }
+        try {
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if(resultSet.next()){
+                return new Student(resultSet.getInt("id"),
+                                    resultSet.getString("firstname"),
+                                    resultSet.getString("lastname"),
+                                    resultSet.getString("email"),
+                                    resultSet.getString("phone"));
+            }
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+
+    public Student createStudent(Student student){
+        PreparedStatement preparedStatement = studentRepository.getPreparedStatement("insert into students(firstname, lastname, phone, email)values(?,?,?,?)");
+        if(preparedStatement == null) {
+            return null;
+        }
+            try {
+                preparedStatement.setString(1, student.getFirstname());
+                preparedStatement.setString(2, student.getLastname());
+                preparedStatement.setString(3, student.getPhone());
+                preparedStatement.setString(4, student.getEmail());
+
+                preparedStatement.execute();
+                return getStudents().stream()
+                        .filter(s -> s.equals(student))
+                        .findFirst()
+                        .orElse(null);
+
+            } catch (SQLException e){
+                System.out.println(e.getMessage());
+            }
+            return  null;
+    }
+
+    public void deleteStudent(int id){
+
+        PreparedStatement statement = studentRepository.getPreparedStatement("DELETE FROM students where id = ?");
+        if(statement == null){
+            return;
+        }
+        try {
+            statement.setInt(1, id);
+            statement.execute();
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+    }
+    public Student updateStudent(Student student){
+        PreparedStatement preparedStatement = studentRepository.getPreparedStatement("UPDATE students set firstname=?, lastname=?, phone=?, email=? where id=?");
+        if(preparedStatement == null){
+            return null;
+        }
+        try{
+            preparedStatement.setString(1, student.getFirstname());
+            preparedStatement.setString(2, student.getLastname());
+            preparedStatement.setString(3, student.getPhone());
+            preparedStatement.setString(4, student.getEmail());
+            preparedStatement.setInt(5, student.getId());
+            preparedStatement.execute();
+
+            return student;
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
 }
